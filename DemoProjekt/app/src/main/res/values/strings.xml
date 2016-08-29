@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DemoProjekt</string>
+    <string name="action_settings">Settings</string>
+    <string name="Hello_wold_1">Привет</string>
+    <string name="cl">click</string>
+    <string name="cl2">Второй Способ</string>
+</resources>
