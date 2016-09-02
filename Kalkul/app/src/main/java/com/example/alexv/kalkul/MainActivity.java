@@ -15,6 +15,16 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,8 +46,15 @@ public class MainActivity extends AppCompatActivity {
     Button bum;
     Button brav;
     EditText txt;
+    EditText txt2;
+    TextView res2;
+    Float res;
+    Float num1;
+    Float num2;
+    String oper;
 
-    TextView res;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +62,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        res2 = (TextView) findViewById(R.id.textView2);
         txt = (EditText) findViewById(R.id.editText);
+
+
+
         b0 = (Button) findViewById(R.id.button0);
         b0.setOnClickListener(new View.OnClickListener()
         {         @Override
@@ -78,21 +100,21 @@ public class MainActivity extends AppCompatActivity {
         b4.setOnClickListener(new View.OnClickListener()
         {         @Override
         public void onClick (View view){
-            txt.setText(txt.getText() + "4");;
+            txt.setText(txt.getText() + "4");
         }
         });
         b5 = (Button) findViewById(R.id.button5);
         b5.setOnClickListener(new View.OnClickListener()
         {         @Override
         public void onClick (View view){
-            txt.setText(txt.getText() + "5");;
+            txt.setText(txt.getText() + "5");
         }
         });
         b6 = (Button) findViewById(R.id.button6);
         b6.setOnClickListener(new View.OnClickListener()
         {         @Override
         public void onClick (View view){
-            txt.setText(txt.getText() + "6");;
+            txt.setText(txt.getText() + "6");
         }
         });
         b7 = (Button) findViewById(R.id.button7);
@@ -106,49 +128,67 @@ public class MainActivity extends AppCompatActivity {
         b8.setOnClickListener(new View.OnClickListener()
         {         @Override
         public void onClick (View view){
-            txt.setText(txt.getText() + "8");;
+            txt.setText(txt.getText() + "8");
         }
         });
         b9 = (Button) findViewById(R.id.button9);
         b9.setOnClickListener(new View.OnClickListener()
         {         @Override
         public void onClick (View view){
-            txt.setText(txt.getText() + "9");;
+            txt.setText(txt.getText() + "9");
         }
         });
         bpls = (Button) findViewById(R.id.buttonpl);
         bpls.setOnClickListener(new View.OnClickListener()
         {         @Override
         public void onClick (View view){
-            txt.setText(txt.getText() + " + ");;
+            num1 = Float.parseFloat(txt.getText().toString());
+            txt.setText("");
+            oper = "+";
+            if (txt.getText().length() != 0 ){
+                num1=res;
+            }
         }
         });
         bdel = (Button) findViewById(R.id.buttondel);
         bdel.setOnClickListener(new View.OnClickListener()
         {         @Override
         public void onClick (View view){
-            txt.setText(txt.getText() + " / ");;
+            txt.setText(txt.getText() + " / ");
         }
         });
         bmin = (Button) findViewById(R.id.buttonmin);
         bmin.setOnClickListener(new View.OnClickListener()
         {         @Override
         public void onClick (View view){
-            txt.setText(txt.getText() + " - ");;
+
+            num1 = Float.parseFloat(txt.getText().toString());
+            if (txt.getText().length() != 0 ){
+                num1=res;
+            }
+            txt.setText("");
+            oper = "-";
+
         }
         });
         bum = (Button) findViewById(R.id.buttonum);
         bum.setOnClickListener(new View.OnClickListener()
         {         @Override
         public void onClick (View view){
-            txt.setText(txt.getText() + " * ");;
+            num1 = Float.parseFloat(txt.getText().toString());
+            txt.setText("");
+            oper = "*";
+            if (txt.getText().length() != 0 ){
+                num1=res;
+            }
+
         }
         });
         btoch = (Button) findViewById(R.id.buttontoch);
         btoch.setOnClickListener(new View.OnClickListener()
         {         @Override
         public void onClick (View view){
-            txt.setText(txt.getText() + ",");;
+            txt.setText(txt.getText() + ".");
         }
         });
         bc = (Button) findViewById(R.id.buttonc);
@@ -157,6 +197,42 @@ public class MainActivity extends AppCompatActivity {
             public void onClick (View view) {
                 txt.getText().delete(txt.length() - 1, txt.length());
             }
+        });
+        brav = (Button) findViewById(R.id.buttonrav);
+        brav.setOnClickListener(new View.OnClickListener()
+        {         @Override
+        public void onClick (View view){
+            switch (oper) {
+                case "+": {
+                    num2=Float.parseFloat(txt.getText().toString());
+                    res= num1+num2;
+                    res2.setText(num1+ " "+ oper +" "+  num2 + " = " + res );
+                    num1 = res;
+                    txt.setText("");
+                    break;
+
+                }
+                case "-": {
+                    num2=Float.parseFloat(txt.getText().toString());
+                    res= num1-num2;
+                    res2.setText(num1+ " "+ oper +" "+  num2 + " = " + res );
+                    num1 = res;
+                    txt.setText("");
+                    break;
+
+                }
+                case "*": {
+                    num2=Float.parseFloat(txt.getText().toString());
+                    res= num1*num2;
+                    res2.setText(num1+ " "+ oper +" "+  num2 + " = " + res );
+                    num1 = res;
+                    txt.setText("");
+                    break;
+
+                }
+            }
+
+        }
         });
 
         txt.addTextChangedListener(new TextWatcher() {
@@ -177,6 +253,8 @@ public class MainActivity extends AppCompatActivity {
                if (txt.getText().length() != 0 ){
                    bc.setEnabled(true);
                }else {bc.setEnabled(false);}
+
+
            }
         });
           /*  if (txt.getText().length() != 0) {
@@ -195,17 +273,31 @@ public class MainActivity extends AppCompatActivity {
                 txt.getText().delete(txt.length()-1,txt.length());
             }*/
 
-        brav = (Button) findViewById(R.id.buttonrav);
-        brav.setOnClickListener(new View.OnClickListener()
-        {  @Override
-        public void onClick (View view) {
-
-        }
-
-        });
 
    }
-public void pls (String str, Integer index1, Integer index2 ){
+
+   /* public void  OnClick (View v){
+        float res = 0;
+        String oper = "";
+        float num1 = Float.parseFloat(txt.getText().toString());
+        float num2 = Float.parseFloat(txt2.getText().toString());
+        TextView res2 = (TextView) findViewById(R.id.textView2);
+    switch (v.getId()) {
+        case R.id.buttonpl:
+            oper = "+";
+            res = num1 + num2;
+            break;
+
+        default:
+            break;
+}
+res2.setText(num1 + " "+oper+" "+num2 +" = "+res);
+
+    }*/
+
+    // формируем строку вывода
+
+/*public void pls (String str, Integer index1, Integer index2 ){
      String s = txt.getText().toString();
   if  (s.matches("([\\d]*)")){
 if (s.matches("([\\+]*)")){
@@ -215,7 +307,18 @@ if (s.matches("([\\+]*)")){
 
       }
 
-  }
+  }*/
+public void vvd() {
+    if (res != 0){
+
+        num1 = Float.parseFloat(txt.getText().toString());
+    }else if (txt.getText().length() != 0 ){
+        num1=res;
+
+    }
+
+    txt.setText("");
+}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
