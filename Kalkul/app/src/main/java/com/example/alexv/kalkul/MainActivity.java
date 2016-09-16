@@ -54,271 +54,261 @@ public class MainActivity extends AppCompatActivity {
     String oper;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        res = 0f;
         res2 = (TextView) findViewById(R.id.textView2);
         txt = (EditText) findViewById(R.id.editText);
-
-
-
         b0 = (Button) findViewById(R.id.button0);
-        b0.setOnClickListener(new View.OnClickListener()
-        {         @Override
-        public void onClick (View view){
-            txt.setText(txt.getText() + "0");
-        }
+        b0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txt.setText(txt.getText() + "0");
+                res2.setText(res2.getText() + "0");
+            }
         });
         b1 = (Button) findViewById(R.id.button1);
-        b1.setOnClickListener(new View.OnClickListener()
-        {         @Override
-        public void onClick (View view){
-            txt.setText(txt.getText() + "1");
-        }
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txt.setText(txt.getText() + "1");
+                res2.setText(res2.getText() + "1");
+            }
         });
+
         b2 = (Button) findViewById(R.id.button2);
-        b2.setOnClickListener(new View.OnClickListener()
-        {         @Override
-        public void onClick (View view){
-            txt.setText(txt.getText() + "2");
-        }
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txt.setText(txt.getText() + "2");
+                res2.setText(res2.getText() + "2");
+            }
         });
         b3 = (Button) findViewById(R.id.button3);
-        b3.setOnClickListener(new View.OnClickListener()
-        {         @Override
-        public void onClick (View view){
-            txt.setText(txt.getText() + "3");
-        }
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txt.setText(txt.getText() + "3");
+                res2.setText(res2.getText() + "3");
+            }
         });
         b4 = (Button) findViewById(R.id.button4);
-        b4.setOnClickListener(new View.OnClickListener()
-        {         @Override
-        public void onClick (View view){
-            txt.setText(txt.getText() + "4");
-        }
+        b4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txt.setText(txt.getText() + "4");
+                res2.setText(res2.getText() + "4");
+            }
         });
         b5 = (Button) findViewById(R.id.button5);
-        b5.setOnClickListener(new View.OnClickListener()
-        {         @Override
-        public void onClick (View view){
-            txt.setText(txt.getText() + "5");
-        }
+        b5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txt.setText(txt.getText() + "5");
+                res2.setText(res2.getText() + "5");
+            }
         });
         b6 = (Button) findViewById(R.id.button6);
-        b6.setOnClickListener(new View.OnClickListener()
-        {         @Override
-        public void onClick (View view){
-            txt.setText(txt.getText() + "6");
-        }
+        b6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txt.setText(txt.getText() + "6");
+                res2.setText(res2.getText() + "6");
+            }
         });
         b7 = (Button) findViewById(R.id.button7);
-        b7.setOnClickListener(new View.OnClickListener()
-        {         @Override
-        public void onClick (View view){
-            txt.setText(txt.getText() + "7");;
-        }
+        b7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txt.setText(txt.getText() + "7");
+                res2.setText(res2.getText() + "7");
+            }
         });
         b8 = (Button) findViewById(R.id.button8);
-        b8.setOnClickListener(new View.OnClickListener()
-        {         @Override
-        public void onClick (View view){
-            txt.setText(txt.getText() + "8");
-        }
+        b8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txt.setText(txt.getText() + "8");
+                res2.setText(res2.getText() + "8");
+            }
         });
         b9 = (Button) findViewById(R.id.button9);
-        b9.setOnClickListener(new View.OnClickListener()
-        {         @Override
-        public void onClick (View view){
-            txt.setText(txt.getText() + "9");
-        }
-        });
-        bpls = (Button) findViewById(R.id.buttonpl);
-        bpls.setOnClickListener(new View.OnClickListener()
-        {         @Override
-        public void onClick (View view){
-            num1 = Float.parseFloat(txt.getText().toString());
-            txt.setText("");
-            oper = "+";
-            if (txt.getText().length() != 0 ){
-                num1=res;
+        b9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txt.setText(txt.getText() + "9");
+                res2.setText(res2.getText() + "9");
             }
-        }
-        });
-        bdel = (Button) findViewById(R.id.buttondel);
-        bdel.setOnClickListener(new View.OnClickListener()
-        {         @Override
-        public void onClick (View view){
-            txt.setText(txt.getText() + " / ");
-        }
-        });
-        bmin = (Button) findViewById(R.id.buttonmin);
-        bmin.setOnClickListener(new View.OnClickListener()
-        {         @Override
-        public void onClick (View view){
-
-            num1 = Float.parseFloat(txt.getText().toString());
-            if (txt.getText().length() != 0 ){
-                num1=res;
-            }
-            txt.setText("");
-            oper = "-";
-
-        }
-        });
-        bum = (Button) findViewById(R.id.buttonum);
-        bum.setOnClickListener(new View.OnClickListener()
-        {         @Override
-        public void onClick (View view){
-            num1 = Float.parseFloat(txt.getText().toString());
-            txt.setText("");
-            oper = "*";
-            if (txt.getText().length() != 0 ){
-                num1=res;
-            }
-
-        }
         });
         btoch = (Button) findViewById(R.id.buttontoch);
-        btoch.setOnClickListener(new View.OnClickListener()
-        {         @Override
-        public void onClick (View view){
-            txt.setText(txt.getText() + ".");
-        }
+        btoch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txt.setText(txt.getText() + ".");
+                res2.setText(res2.getText() + ".");
+            }
         });
         bc = (Button) findViewById(R.id.buttonc);
-        bc.setOnClickListener(new View.OnClickListener()
-        {         @Override
-            public void onClick (View view) {
+        bc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (txt.getText().length()!=0){
                 txt.getText().delete(txt.length() - 1, txt.length());
+                }
+                String str = res2.getText().toString().trim();
+                if(str.length()!=0){
+                    str  = str.substring( 0, str.length() - 1 );
+                    res2.setText ( str );
+                }
+            }
+        });
+        bpls = (Button) findViewById(R.id.buttonpl);
+        bpls.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vvd(view);
+                oper = "+";
+                res2.setText(res2.getText()+" " + oper + " " );
+                if (txt.getText().length() == 0 && res != null  ){
+                    res2.setText(num1+" "+ oper + " " );
+                }
+                txt.setText("");
+
+            }
+        });
+        bdel = (Button) findViewById(R.id.buttondel);
+        bdel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vvd(view);
+                oper = "/";
+                res2.setText(res2.getText()+" " + oper + " " );
+                if (txt.getText().length() == 0 && res != null ){
+                    res2.setText(num1+" "+ oper + " " );
+                }
+                txt.setText("");
+            }
+        });
+        bmin = (Button) findViewById(R.id.buttonmin);
+        bmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vvd(view);
+                oper = "-";
+                res2.setText(res2.getText()+" " + oper + " " );
+                if (txt.getText().length() == 0 && res != null ){
+                    res2.setText(num1+" "+ oper + " " );
+                }
+                txt.setText("");
+            }
+        });
+        bum = (Button) findViewById(R.id.buttonum);
+        bum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vvd(view);
+                oper = "*";
+                res2.setText(res2.getText()+" " + oper + " " );
+                if (txt.getText().length() == 0 && res != null ){
+                    res2.setText(num1+" "+ oper + " " );
+                }
+                txt.setText("");
             }
         });
         brav = (Button) findViewById(R.id.buttonrav);
-        brav.setOnClickListener(new View.OnClickListener()
-        {         @Override
-        public void onClick (View view){
-            switch (oper) {
-                case "+": {
-                    num2=Float.parseFloat(txt.getText().toString());
-                    res= num1+num2;
-                    res2.setText(num1+ " "+ oper +" "+  num2 + " = " + res );
-                    num1 = res;
-                    txt.setText("");
-                    break;
-
+        brav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (num1 == null || txt.getText().length() == 0){
+                    Snackbar.make(view, "Введите значения", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                } else switch (oper) {
+                    case "+": {
+                        num2 = Float.parseFloat(txt.getText().toString());
+                        res = num1 + num2;
+                        res2.setText(res2.getText()+ " " +  " = " + res + "\n");
+                        num1 = res;
+                        txt.setText("");
+                        break;
+                    }
+                    case "-": {
+                        num2 = Float.parseFloat(txt.getText().toString());
+                        res = num1 - num2;
+                        res2.setText(res2.getText()+ " " +  " = " + res+ "\n");
+                        num1 = res;
+                        txt.setText("");
+                        break;
+                    }
+                    case "*": {
+                        num2 = Float.parseFloat(txt.getText().toString());
+                        res = num1 * num2;
+                        res2.setText(res2.getText()+ " " +  " = " + res+ "\n");
+                        num1 = res;
+                        txt.setText("");
+                        break;
+                    }
+                    case "/": {
+                        num2 = Float.parseFloat(txt.getText().toString());
+                        res = num1 / num2;
+                        if (num2 == 0 || num1 == 0) {
+                            Snackbar.make(view, "Деление на ноль", Snackbar.LENGTH_LONG)
+                                    .setAction("Action", null).show();
+                        } else  res2.setText(res2.getText()+ " " +  " = " + res+ "\n" );
+                        num1 = res;
+                        txt.setText("");
+                        break;
+                    }
                 }
-                case "-": {
-                    num2=Float.parseFloat(txt.getText().toString());
-                    res= num1-num2;
-                    res2.setText(num1+ " "+ oper +" "+  num2 + " = " + res );
-                    num1 = res;
-                    txt.setText("");
-                    break;
 
-                }
-                case "*": {
-                    num2=Float.parseFloat(txt.getText().toString());
-                    res= num1*num2;
-                    res2.setText(num1+ " "+ oper +" "+  num2 + " = " + res );
-                    num1 = res;
-                    txt.setText("");
-                    break;
-
-                }
             }
-
-        }
         });
+
+
 
         txt.addTextChangedListener(new TextWatcher() {
-           @Override
-           public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-               /*Log.i("txt", "before");*/
-
-           }
-
-           @Override
-           public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-           }
-
-           @Override
-           public void afterTextChanged(Editable editable) {
-
-               if (txt.getText().length() != 0 ){
-                   bc.setEnabled(true);
-               }else {bc.setEnabled(false);}
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
 
-           }
-        });
-          /*  if (txt.getText().length() != 0) {
-
-                txt.getText().delete(txt.length()-1,txt.length());
-            }else {bc.setEnabled(false);}*/
-
-
-
-          /*  if(TextUtils.isEmpty(txt.getText().toString())){
-
-                Snackbar.make(view, "Строка пуста", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
             }
-            else {
-                txt.getText().delete(txt.length()-1,txt.length());
-            }*/
 
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-   }
+            }
 
-   /* public void  OnClick (View v){
-        float res = 0;
-        String oper = "";
-        float num1 = Float.parseFloat(txt.getText().toString());
-        float num2 = Float.parseFloat(txt2.getText().toString());
-        TextView res2 = (TextView) findViewById(R.id.textView2);
-    switch (v.getId()) {
-        case R.id.buttonpl:
-            oper = "+";
-            res = num1 + num2;
-            break;
+            @Override
+            public void afterTextChanged(Editable editable) {
 
-        default:
-            break;
-}
-res2.setText(num1 + " "+oper+" "+num2 +" = "+res);
+                if (txt.getText().length() != 0) {
+                    bc.setEnabled(true);
+                } else {
+                    bc.setEnabled(false);
+                }
+                if (res2.getText().length() != 0) {
+                    bc.setEnabled(true);
+                } else {
+                    bc.setEnabled(false);
+                }
 
-    }*/
-
-    // формируем строку вывода
-
-/*public void pls (String str, Integer index1, Integer index2 ){
-     String s = txt.getText().toString();
-  if  (s.matches("([\\d]*)")){
-if (s.matches("([\\+]*)")){
-
-}
-
-
-      }
-
-  }*/
-public void vvd() {
-    if (res != 0){
-
-        num1 = Float.parseFloat(txt.getText().toString());
-    }else if (txt.getText().length() != 0 ){
-        num1=res;
-
+            }
+        });
     }
-
-    txt.setText("");
-}
+    public void vvd(View v) {
+        if (res == null) {
+            Snackbar.make(v , "Введите значения", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+        }
+        if (txt.getText().length() != 0) {
+            num1 = Float.parseFloat(txt.getText().toString());
+        } else {
+            num1 = res;
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
